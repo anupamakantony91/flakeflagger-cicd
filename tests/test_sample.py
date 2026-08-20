@@ -126,7 +126,7 @@ def test_nested_loops():
     assert len(result) == 500
 
 def test_string_operations_medium():
-    text = "FlakeFlagger CI/CD Pipeline Research"
+    text = "FlakeFlagger CI/CD Pipeline DevOps Research"
     words = text.split()
     assert len(words) == 5
     assert words[0] == "FlakeFlagger"
