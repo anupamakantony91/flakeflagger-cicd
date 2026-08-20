@@ -180,6 +180,13 @@ tests = [
     {"test_name": "test_covers_many_modules", "ExecutionTime": 1.80,
      "testLength": 9, "numAsserts": 5, "numCoveredLines": 90,
      "projectSourceLinesCovered": 450, "projectSourceClassesCovered": 20},
+    {"test_name": "test_covers_many_modules", "ExecutionTime": 1.80,
+     "testLength": 9, "numAsserts": 5, "numCoveredLines": 90,
+     "projectSourceLinesCovered": 450, "projectSourceClassesCovered": 20},
+    # Flaky test simulation — high risk profile
+    {"test_name": "test_flaky_simulation", "ExecutionTime": 4.80,
+     "testLength": 35, "numAsserts": 5, "numCoveredLines": 280,
+     "projectSourceLinesCovered": 1850, "projectSourceClassesCovered": 65},
 ]
 
 df = pd.DataFrame(tests)

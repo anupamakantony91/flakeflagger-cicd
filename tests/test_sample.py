@@ -255,3 +255,58 @@ def test_covers_many_modules():
     assert "key" in data
     pattern = re.compile(r'\d+')
     assert pattern.search("test123") is not None
+
+
+# ── FLAKY TEST (high flakiness risk profile) ──────────────
+# This test simulates characteristics of a real flaky test:
+# - Long execution time (depends on timing)
+# - Covers many external modules
+# - Uses network-like operations
+# - Non-deterministic behaviour possible
+
+def test_flaky_simulation():
+    """
+    Simulates a test with high flakiness risk profile.
+    Characteristics: long execution, many dependencies,
+    timing sensitive, covers many classes and lines.
+    This test has a profile similar to real flaky tests
+    in the FlakeFlagger dataset.
+    """
+    import time
+    import math
+    import os
+    import sys
+    import json
+    import re
+    import random
+    import threading
+    import hashlib
+    import collections
+
+    # Simulate timing-dependent operations
+    start = time.time()
+
+    # Heavy computation across many modules
+    results = []
+    for i in range(10000):
+        val = math.sqrt(i + 1) * math.log(i + 2)
+        h = hashlib.md5(str(val).encode()).hexdigest()
+        results.append(h)
+
+    # Cross-module operations
+    data = collections.OrderedDict()
+    for i, h in enumerate(results[:100]):
+        data[f"key_{i}"] = {"hash": h, "index": i}
+
+    json_str = json.dumps(data)
+    pattern = re.compile(r'"hash": "[a-f0-9]+"')
+    matches = pattern.findall(json_str)
+
+    elapsed = time.time() - start
+
+    # Assertions
+    assert len(results) == 10000
+    assert len(matches) == 100
+    assert elapsed < 30.0
+    assert sys.version is not None
+    assert os.sep in ['/', '\\']
