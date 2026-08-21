@@ -180,25 +180,35 @@ tests = [
         {"test_name": "test_covers_many_modules", "ExecutionTime": 1.80,
      "testLength": 9, "numAsserts": 5, "numCoveredLines": 90,
      "projectSourceLinesCovered": 450, "projectSourceClassesCovered": 20},
-    # Flaky test simulation — extreme high risk profile
-    # Features match real flaky tests in FlakeFlagger dataset
-    {"test_name": "test_flaky_simulation", "ExecutionTime": 8.50,
-     "testLength": 120, "numAsserts": 8, "numCoveredLines": 850,
-     "projectSourceLinesCovered": 4200, "projectSourceClassesCovered": 95,
-     "hIndexModificationsPerCoveredLine_window5": 0.95,
-     "hIndexModificationsPerCoveredLine_window10": 0.88,
-     "hIndexModificationsPerCoveredLine_window25": 0.82,
-     "hIndexModificationsPerCoveredLine_window50": 0.79,
-     "hIndexModificationsPerCoveredLine_window75": 0.75,
-     "hIndexModificationsPerCoveredLine_window100": 0.72,
-     "hIndexModificationsPerCoveredLine_window500": 0.65,
-     "hIndexModificationsPerCoveredLine_window10000": 0.58,
-     "num_third_party_libs": 8,
-     "assertion-roulette": 1,
-     "conditional-test-logic": 1,
-     "mystery-guest": 1,
-     "resource-optimism": 1,
-     "fire-and-forget": 1},
+        # Flaky test simulation — uses exact average feature values
+    # of real flaky tests from FlakeFlagger dataset (Bell et al. 2021)
+    # Average ExecutionTime of flaky tests: 6.59s
+    # Average projectSourceLinesCovered: 194
+    # Average projectSourceClassesCovered: 63
+    {"test_name": "test_flaky_simulation",
+     "ExecutionTime": 6.59,
+     "testLength": 23.0,
+     "numAsserts": 2.8,
+     "numCoveredLines": 22.0,
+     "projectSourceLinesCovered": 194.0,
+     "projectSourceClassesCovered": 63.0,
+     "assertion-roulette": 0.45,
+     "conditional-test-logic": 0.09,
+     "eager-test": 0.12,
+     "fire-and-forget": 0.21,
+     "indirect-testing": 0.59,
+     "mystery-guest": 0.12,
+     "resource-optimism": 0.08,
+     "test-run-war": 0.10,
+     "hIndexModificationsPerCoveredLine_window5": 0.44,
+     "hIndexModificationsPerCoveredLine_window10": 0.76,
+     "hIndexModificationsPerCoveredLine_window25": 0.96,
+     "hIndexModificationsPerCoveredLine_window50": 1.25,
+     "hIndexModificationsPerCoveredLine_window75": 1.36,
+     "hIndexModificationsPerCoveredLine_window100": 1.58,
+     "hIndexModificationsPerCoveredLine_window500": 2.37,
+     "hIndexModificationsPerCoveredLine_window10000": 3.12,
+     "num_third_party_libs": 4.5},
 ]
 
 df = pd.DataFrame(tests)
