@@ -177,16 +177,28 @@ tests = [
     {"test_name": "test_execution_time_with_sleep", "ExecutionTime": 2.50,
      "testLength": 6, "numAsserts": 2, "numCoveredLines": 85,
      "projectSourceLinesCovered": 420, "projectSourceClassesCovered": 18},
-    {"test_name": "test_covers_many_modules", "ExecutionTime": 1.80,
+        {"test_name": "test_covers_many_modules", "ExecutionTime": 1.80,
      "testLength": 9, "numAsserts": 5, "numCoveredLines": 90,
      "projectSourceLinesCovered": 450, "projectSourceClassesCovered": 20},
-    {"test_name": "test_covers_many_modules", "ExecutionTime": 1.80,
-     "testLength": 9, "numAsserts": 5, "numCoveredLines": 90,
-     "projectSourceLinesCovered": 450, "projectSourceClassesCovered": 20},
-    # Flaky test simulation — high risk profile
-    {"test_name": "test_flaky_simulation", "ExecutionTime": 4.80,
-     "testLength": 35, "numAsserts": 5, "numCoveredLines": 280,
-     "projectSourceLinesCovered": 1850, "projectSourceClassesCovered": 65},
+    # Flaky test simulation — extreme high risk profile
+    # Features match real flaky tests in FlakeFlagger dataset
+    {"test_name": "test_flaky_simulation", "ExecutionTime": 8.50,
+     "testLength": 120, "numAsserts": 8, "numCoveredLines": 850,
+     "projectSourceLinesCovered": 4200, "projectSourceClassesCovered": 95,
+     "hIndexModificationsPerCoveredLine_window5": 0.95,
+     "hIndexModificationsPerCoveredLine_window10": 0.88,
+     "hIndexModificationsPerCoveredLine_window25": 0.82,
+     "hIndexModificationsPerCoveredLine_window50": 0.79,
+     "hIndexModificationsPerCoveredLine_window75": 0.75,
+     "hIndexModificationsPerCoveredLine_window100": 0.72,
+     "hIndexModificationsPerCoveredLine_window500": 0.65,
+     "hIndexModificationsPerCoveredLine_window10000": 0.58,
+     "num_third_party_libs": 8,
+     "assertion-roulette": 1,
+     "conditional-test-logic": 1,
+     "mystery-guest": 1,
+     "resource-optimism": 1,
+     "fire-and-forget": 1},
 ]
 
 df = pd.DataFrame(tests)
